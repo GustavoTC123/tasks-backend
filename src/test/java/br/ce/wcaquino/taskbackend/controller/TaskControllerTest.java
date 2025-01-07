@@ -51,7 +51,7 @@ public class TaskControllerTest {
             taskController.save(task);
             Assert.fail();
         } catch (ValidationException e) {
-            Assert.assertEquals("Fill the due date", e.getMessage());
+            Assert.assertEquals("Fill t due date", e.getMessage());
         }
     }
 
