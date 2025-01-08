@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Teste'){
             steps{
-                bat 'echo Deu certo'
+                bat 'mvn clean package -DskipTests=true'
             }
         }
     }
