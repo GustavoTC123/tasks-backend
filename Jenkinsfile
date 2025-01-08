@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('Teste'){
+        stage('Deploy Backend'){
             steps{
                 bat 'mvn clean package -DskipTests=true'
             }
