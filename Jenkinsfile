@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    environment {
+        JAVA_HOME = tool name: 'JAVA_LOCAL', type: 'JDK'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
     stages{
         stage('Deploy Backend'){
             steps{
