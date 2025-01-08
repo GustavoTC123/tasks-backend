@@ -1,8 +1,7 @@
 pipeline{
     agents any
     stages{
-        stage('Teste')
-        {
+        stage('Teste'){
             bat 'Deu certo'
         }
     }
