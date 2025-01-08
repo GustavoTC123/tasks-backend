@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('Deploy Backend'){
+        stage('Package Backend'){
             steps{
                 bat 'mvn clean package -DskipTests=true'
             }
@@ -10,6 +10,10 @@ pipeline{
             steps{
                 bat 'mvn test'
             }
+        }
+        stage('Deploy Backend')
+        {
+            deploy adapters: [tomcat9(credentialsId: 'LoginTomcat', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
         }
     }
 }
