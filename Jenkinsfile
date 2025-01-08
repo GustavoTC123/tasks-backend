@@ -26,5 +26,15 @@ pipeline{
                 }
             }
         }
+        stage('Deploy Frontend')
+        {
+            steps{
+                dir('tasks-frontend'){
+                    git branch: 'master', url: 'https://github.com/GustavoTC123/tasks-frontend.git'
+                    bat 'mvn package'
+                    deploy adapters: [tomcat9(credentialsId: 'LoginTomcat', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
+                }
+            }
+        }
     }
 }
