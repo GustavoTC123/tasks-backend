@@ -45,5 +45,11 @@ pipeline{
                 }
             }
         }
+        stage('Deploy Prdo'){
+            steps{
+                bat 'docker-compose build'
+                bat 'docker-compose up -d'
+            }
+        }
     }
 }
